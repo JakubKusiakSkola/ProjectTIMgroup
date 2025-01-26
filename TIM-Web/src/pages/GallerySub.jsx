@@ -77,9 +77,7 @@ const GallerySub = ({ mode }) => {
                     marginBottom: "24px"
                   }}
                 >
-          Lorem ipsum dolor sit amet consectetur. Aliquam egestas sed quam aliquam fermentum metus arcu quam et.
-          Consectetur iaculis diam non amet in. Nunc lacus nisi adipiscing enim sed. Ultrices amet nibh fringilla
-          accumsan.
+          Všetky naše úspechy meníme na milé spomienky 
         </Typography>
       </Box>
 

@@ -55,8 +55,7 @@ const FAQ = ({ mode }) => {
             textAlign: "left"
             
         }}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-          malesuada lacus ex, sit amet blandit leo lobortis eget.
+          Nakoľko sú kurzy prispôsobené vekovej kategórii tanečníka, je možné prihlásiť sa len na jeden kurz.
         </AccordionDetails>
       </Accordion>
 
@@ -78,8 +77,7 @@ const FAQ = ({ mode }) => {
             textAlign: "left"
             
         }}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-          malesuada lacus ex, sit amet blandit leo lobortis eget.
+          Merch tanečnej školy je možné zakúpiť si za výhodné ceny len v prípade, že ste tanečníkom školy. 
         </AccordionDetails>
       </Accordion>
 
@@ -100,8 +98,7 @@ const FAQ = ({ mode }) => {
         <AccordionDetails sx={{
             textAlign: "left"           
         }}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-          malesuada lacus ex, sit amet blandit leo lobortis eget.
+          Samozrejme. Naša tanečná škola prijíma aj mladšie deti, ak budú schopné spolupráce na kurzoch.
         </AccordionDetails>
       </Accordion>
 
@@ -123,8 +120,7 @@ const FAQ = ({ mode }) => {
             textAlign: "left"
             
         }}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-          malesuada lacus ex, sit amet blandit leo lobortis eget.
+          Naši tanečníci tancujú v hocičom čo je im pohodlné. Nie je potrebná žiadna špeciálna obuv.
         </AccordionDetails>
       </Accordion>
 
@@ -146,8 +142,7 @@ const FAQ = ({ mode }) => {
             textAlign: "left"
             
         }}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-          malesuada lacus ex, sit amet blandit leo lobortis eget.
+          Merch je možné si ponechať, kostými však spadajú pod majetok školy.
         </AccordionDetails>
       </Accordion>
 
@@ -169,8 +164,7 @@ const FAQ = ({ mode }) => {
             textAlign: "left"
             
         }}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-          malesuada lacus ex, sit amet blandit leo lobortis eget.
+          Samozrejme, každému tanečníkovi sme schopní sa venovať osobne a úplný začiatočník pre nás nie je problémom.
         </AccordionDetails>
       </Accordion>
       

@@ -42,10 +42,7 @@ const Trainers = ({ mode }) => {
                     margin: "0 auto",
                   }}
                 >
-          Lorem ipsum dolor sit amet consectetur. Aliquam egestas sed quam
-          aliquam fermentum metus arcu quam et. Consectetur iaculis diam non
-          amet in. Nunc lacus nisi adipiscing enim sed. Ultrices amet nibh
-          fringilla accumsan.
+          Náš tím sa skladá z dvoch certifikovaných lektorov a jedného pomocného lektora
         </Typography>
       </Box>
 
