@@ -313,7 +313,7 @@ function AppContent({ prefersDarkMode }) {
         <Route path="/contact" element={<Contact mode={mode} />} />
         <Route path="/register" element={<div />} /> {/* Placeholder for register route */}
         <Route path="/login" element={<div />} /> {/* Placeholder for login route */}
-        <Route path="/profile" element={<Profile />} /> {/* Add Profile route */}
+        <Route path="/profile" element={<Profile  mode = {mode} />} /> {/* Add Profile route */}
       </Routes>
     </Paper>
   );

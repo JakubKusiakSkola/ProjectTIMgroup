@@ -1,27 +1,84 @@
-// src/components/logged-user/Profile.jsx
-import React from "react";
-import { Box, Typography, Tab, Tabs } from "@mui/material";
+import React, { useState } from "react";
+import { Box, Typography, Tabs, Tab } from "@mui/material";
+import Contact from "../Contact";
 
-export default function Profile() {
-  const [value, setValue] = React.useState(0); // Stav pre kontrolu aktuálne vybraného tabu
+const Profile = ({ mode }) => {
+  const [activeTab, setActiveTab] = useState(0);
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue); // Nastaví aktuálny tab
+  const handleTabChange = (event, newValue) => {
+    setActiveTab(newValue);
   };
 
   return (
-    <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
-      <Box sx={{ textAlign: "center" }}>
-        <Typography variant="h3" gutterBottom>
-          Vitajte, Viki
+    <Box
+      sx={{
+        width: "100%",
+        backgroundColor: mode ? "#181818" : "#F9E0E6",
+        color: mode ? "#F9E0E6" : "#181818",
+        paddingTop: "150px",
+        textAlign: "center",
+      }}
+    >
+      {/* Welcome Section */}
+      <Box sx={{ marginBottom: "40px", padding: { xs: "0 16px", md: "16px 0" } }}>
+        <Typography
+          variant="h1"
+          sx={{ fontWeight: "bold", color: mode ? "#C20E4D" : "#610726", fontSize: { md: "5rem", xs: "3rem" } }}
+        >
+          Vitajte
         </Typography>
-        <Tabs value={value} onChange={handleChange} centered>
-          <Tab label="Moje kurzy" />
-          <Tab label="Profil" />
-        </Tabs>
-        {value === 0 && <Typography variant="h6">Tu sú vaše kurzy.</Typography>}
-        {value === 1 && <Typography variant="h6">Tu sú vaše údaje o profile.</Typography>}
+        <Typography
+          variant="h4"
+          sx={{
+            fontWeight: "normal",
+            fontSize: { xs: "1.2rem", sm: "1.3rem", md: "1.5rem" },
+            width: { md: "70%", xs: "100%" },
+            margin: "0 auto",
+          }}
+        >
+          Vitajte v profile
+        </Typography>
       </Box>
+
+      {/* Tabs Section */}
+      <Box
+        sx={{
+          margin: "0 auto",
+          backgroundColor: "#610726",
+          color: "#fff",
+          borderRadius: "10px",
+          boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.2)",
+          padding: { xs: "0 16px", md: "0" },
+        }}
+      >
+        <Tabs
+          value={activeTab}
+          onChange={handleTabChange}
+          variant="fullWidth"
+          sx={{
+            ".MuiTabs-indicator": {
+              backgroundColor: "#F9E0E6 !important",
+            },
+            ".MuiTab-root": {
+              textTransform: "none",
+              fontWeight: "bold",
+              color: mode ? "#C20E4D" : "#610726",
+            },
+            ".Mui-selected": {
+              color: mode ? "#181818" : "#F9E0E6",
+            },
+            marginBottom: "56px",
+            padding: { xs: "0 16px", md: "100px 0" },
+            maxWidth: { md:"600px", xs:"400px" },
+          }}
+        >
+          <Tab label="Moje kurzy" sx={{color: "#FFF !important"}} />
+          <Tab label="Profil" sx={{color: "#FFF !important"}} />
+        </Tabs>
+      </Box>
+      <Contact mode={mode} />
     </Box>
   );
-}
+};
+
+export default Profile;
