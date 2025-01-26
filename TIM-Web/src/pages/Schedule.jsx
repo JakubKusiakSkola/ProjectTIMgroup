@@ -53,19 +53,6 @@ const Schedule = ({ mode }) => {
     });
   };
 
-  {/* const handleCancel = () => {
-    setSelectedCourse(null);
-    // Scroll back to the courses section (to start of the courses section)
-    if (coursesRef.current) {
-      setTimeout(() => {
-        coursesRef.current.scrollIntoView({
-          behavior: "smooth",
-          block: "start", // Scroll back to the start of the courses section
-        });
-      }, 100);
-    }
-  }; */}
-
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked); // Zmena stavu checkboxu
   };
