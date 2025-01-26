@@ -53,7 +53,7 @@ const Schedule = ({ mode }) => {
     });
   };
 
-  const handleCancel = () => {
+  {/* const handleCancel = () => {
     setSelectedCourse(null);
     // Scroll back to the courses section (to start of the courses section)
     if (coursesRef.current) {
@@ -64,7 +64,7 @@ const Schedule = ({ mode }) => {
         });
       }, 100);
     }
-  };
+  }; */}
 
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked); // Zmena stavu checkboxu
