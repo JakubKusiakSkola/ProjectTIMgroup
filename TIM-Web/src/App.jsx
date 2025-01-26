@@ -135,7 +135,7 @@ function AppContent({ prefersDarkMode }) {
       <AppBar component="nav" sx={{ backgroundColor: "#000", width: "100%" }}>
         <Toolbar sx={{ padding: 2 }}>
           <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", maxWidth: "1200px", width: "100%", margin: "0 auto" }}>
-            <Box component="img" src="../images/logo.svg" alt="Logo" sx={{ height: "60px" }} />
+            <Box component="img" src="./logo.png" alt="Logo" sx={{ height: "60px" }} />
             {!isMobile && ( // Ak nie je mobil, zobraziť horizontálnu navigáciu
               <Box sx={{ display: "flex", gap: "20px", justifyContent: "center" }}>
                 {navItems.map((item) => (
