@@ -1,10 +1,9 @@
 import { HashLink } from "react-router-hash-link";
-import { Paper, Switch, AppBar, Box, CssBaseline, Toolbar, Button, Modal, TextField, Checkbox, FormControlLabel, FormHelperText, Drawer, IconButton } from "@mui/material";
+import { Paper, Switch, AppBar, Box, CssBaseline, Toolbar, Button, Modal } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { useMediaQuery } from "@mui/material";
 import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
-import MenuIcon from '@mui/icons-material/Menu';
 import AboutUs from "./pages/AboutUs";
 import Home from "./pages/Home";
 import FAQ from "./components/FAQ";
@@ -36,13 +35,6 @@ function AppContent({ prefersDarkMode }) {
   const isMobile = useMediaQuery("(max-width: 600px)"); // Breakpoint pre mobilné zariadenia
   const [mode, setMode] = useState(prefersDarkMode);
   const [openLoginModal, setOpenLoginModal] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
-  const [rememberMe, setRememberMe] = useState(false);
-  const [emailError, setEmailError] = useState(""); 
-  const [openDrawer, setOpenDrawer] = useState(false); // Stav pre otvorený/zakrytý Drawer
-
   const [action, setAction] = useState("Registrácia");
   const [message, setMessage] = useState(""); // State variable for the success message
 
@@ -87,7 +79,7 @@ function AppContent({ prefersDarkMode }) {
       }
       setMessage(response.data.message);
       if (action === "Prihlásiť sa") {
-        handleCloseLoginModal();
+        handleCloseLoginModal(); // Close the modal after successful login
         navigate("/profile"); // Navigate to /profile after successful login
       }
     } catch (error) {
@@ -98,12 +90,6 @@ function AppContent({ prefersDarkMode }) {
 
   const handleOpenLoginModal = () => setOpenLoginModal(true);
   const handleCloseLoginModal = () => setOpenLoginModal(false);
-
-  const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
-      handleSubmit();
-    }
-  };
 
   useEffect(() => {
     const handleKeyDown = (e) => {
