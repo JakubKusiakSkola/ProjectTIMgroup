@@ -22,7 +22,18 @@ function App() {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
 
   return (
-    <ThemeProvider theme={createTheme({ palette: { mode: prefersDarkMode ? 'dark' : 'light' } })}>
+    <ThemeProvider theme={createTheme({ 
+      typography: {
+        fontSize: 16,
+        fontFamily: "'Lora', serif",
+        h1: { fontSize: "2.25rem" },
+        h2: { fontSize: "2rem" },
+        h3: { fontSize: "1.75rem" },
+        h4: { fontSize: "1.5rem" },
+        h5: { fontSize: "1.25rem" },
+        h6: { fontSize: "1rem" },
+      },
+      palette: { mode: prefersDarkMode ? 'dark' : 'light' } })}>
       <CssBaseline />
       <Router>
         <AppContent prefersDarkMode={prefersDarkMode} />
@@ -45,13 +56,13 @@ function AppContent({ prefersDarkMode }) {
   });
 
   const navItems = [
-    { label: "Home", path: "/" },
-    { label: "Schedule", path: "/schedule" },
-    { label: "About Us", path: "/about" },
-    { label: "Events", path: "/events" },
-    { label: "Gallery", path: "/gallery" },
+    { label: "Domov", path: "/" },
+    { label: "Rozvrh", path: "/schedule" },
+    { label: "O nás", path: "/about" },
+    { label: "Udalosti", path: "/events" },
+    { label: "Galéria", path: "/gallery" },
     { label: "FAQ", path: "/faq" },
-    { label: "Contact", path: "/contact" },
+    { label: "Kontakt", path: "/contact" },
   ];
 
   const handleInputChange = (e) => {
@@ -69,10 +80,10 @@ function AppContent({ prefersDarkMode }) {
       let response;
       if (action === "Registrácia") {
         // posiela POST request /register endpointu
-        response = await axios.post("https://timgroup-dcfna7c2eac9fpgq.westeurope-01.azurewebsites.net/register", formData);
+        response = await axios.post("http://localhost:5000/register", formData);
       } else {
         // posiela POST request /login endpointu
-        response = await axios.post("https://timgroup-dcfna7c2eac9fpgq.westeurope-01.azurewebsites.net/login", {
+        response = await axios.post("http://localhost:5000/login", {
           email: formData.email,
           password: formData.password,
         });
@@ -149,12 +160,15 @@ function AppContent({ prefersDarkMode }) {
                 </Button>
               )}
               <Switch
-                checked={mode}
-                onChange={handleChange}
-                inputProps={{ "aria-label": "controlled" }}
-                sx={{
-                  ml: 2,
-                }}
+                 checked={mode}
+                 onChange={handleChange}
+                 inputProps={{ "aria-label": "controlled" }}
+                 sx={{
+                   ml: 2,
+                   "& .MuiSwitch-thumb": { backgroundColor: "#C20E4D" },
+                   "& .MuiSwitch-track": { backgroundColor: "#FFF" },
+                   "& .MuiSwitch-rail": { backgroundColor: "#F9E0E6" },
+                 }}
               />
             </Box>
           </Box>
