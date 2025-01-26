@@ -43,6 +43,7 @@ const Profile = ({ mode }) => {
       {/* Tabs Section */}
       <Box
         sx={{
+          maxWidth: "600px",
           margin: "0 auto",
           backgroundColor: "#610726",
           color: "#fff",
@@ -68,8 +69,7 @@ const Profile = ({ mode }) => {
               color: mode ? "#181818" : "#F9E0E6",
             },
             marginBottom: "56px",
-            padding: { xs: "0 16px", md: "100px 0" },
-            maxWidth: { md:"600px", xs:"400px" },
+            padding: { xs: "0 16px", md: "0" },
           }}
         >
           <Tab label="Moje kurzy" sx={{color: "#FFF !important"}} />

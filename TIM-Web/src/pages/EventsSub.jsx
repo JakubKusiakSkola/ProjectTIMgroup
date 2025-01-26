@@ -36,9 +36,7 @@ const Events = ({ mode }) => {
                     margin: "0 auto",
                   }}
                 >
-          Lorem ipsum dolor sit amet consectetur. Aliquam egestas sed quam aliquam fermentum metus arcu quam et.
-          Consectetur iaculis diam non amet in. Nunc lacus nisi adipiscing enim sed. Ultrices amet nibh fringilla
-          accumsan.
+          Čo nás spolu v blízkej dobe čaká?
         </Typography>
       </Box>
 
@@ -73,9 +71,7 @@ const Events = ({ mode }) => {
                 MIA FESTIVAL
               </Typography>
               <Typography variant="body2" sx={{ color: "inherit" }}>
-                Lorem ipsum dolor sit amet consectetur. Varius placerat tortor ornare varius eu. Tincidunt risus
-                consectetur vitae non amet non faucibus sagittis. Non at suspendisse dignissim nam ac. Pellentesque est
-                at penatibus lectus tincidunt urna urna nam.
+                Tanečná súťaž KOŠICE 18.4.2025
               </Typography>
             </CardContent>
         </Card>
@@ -182,10 +178,10 @@ const Events = ({ mode }) => {
               }}
             >
               <Typography variant="h5" sx={{ fontWeight: "bold", color: "inherit", marginBottom: "8px" }}>
-              EUROPEAN DANCE CUP
+              CONTEMPORARY WORKSHOP
               </Typography>
               <Typography variant="body2" sx={{ color: "inherit" }}>
-              Európska súťaž o pohár a postup  KANIJŽA SERBIA  20.5.2025
+              Košice 12.6.2025 Lektor: Jana Rozhoňová 18:00 Kutlúrne Stredisko Nad Jazerom
               </Typography>
             </CardContent>
         </Card>
@@ -220,10 +216,10 @@ const Events = ({ mode }) => {
               }}
             >
               <Typography variant="h5" sx={{ fontWeight: "bold", color: "inherit", marginBottom: "8px" }}>
-              EUROPEAN DANCE CUP
+              DANCE CUP
               </Typography>
               <Typography variant="body2" sx={{ color: "inherit" }}>
-              Európska súťaž o pohár a postup  KANIJŽA SERBIA  20.5.2025
+              Tanečný tábor plný tréningov a nových znalostí 5.7 - 13.7.2025 Remetské Hámre
               </Typography>
             </CardContent>
         </Card>
