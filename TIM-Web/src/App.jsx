@@ -1,6 +1,6 @@
 import { HashLink } from "react-router-hash-link";
 import { Paper, Switch, AppBar, Box, CssBaseline, Toolbar, Button, Modal } from "@mui/material";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { useMediaQuery } from "@mui/material";
 import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
@@ -64,15 +64,15 @@ function AppContent({ prefersDarkMode }) {
 
   const navigate = useNavigate(); // Use the useNavigate hook inside the AppContent component
 
-  const handleSubmit = async () => {
+  const handleSubmit = useCallback(async () => {
     try {
       let response;
       if (action === "Registrácia") {
         // posiela POST request /register endpointu
-        response = await axios.post("http://localhost:5000/register", formData);
+        response = await axios.post("https://timgroup-dcfna7c2eac9fpgq.westeurope-01.azurewebsites.net/register", formData);
       } else {
         // posiela POST request /login endpointu
-        response = await axios.post("http://localhost:5000/login", {
+        response = await axios.post("https://timgroup-dcfna7c2eac9fpgq.westeurope-01.azurewebsites.net/login", {
           email: formData.email,
           password: formData.password,
         });
@@ -86,7 +86,7 @@ function AppContent({ prefersDarkMode }) {
       console.error("Error:", error.response?.data || error.message);
       alert(error.response?.data?.message || "Something went wrong!");
     }
-  };
+  }, [action, formData, navigate]);
 
   const handleOpenLoginModal = () => setOpenLoginModal(true);
   const handleCloseLoginModal = () => setOpenLoginModal(false);
@@ -100,7 +100,7 @@ function AppContent({ prefersDarkMode }) {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [formData, action]);
+  }, [handleSubmit]);
 
   const handleChange = (event) => {
     setMode(event.target.checked);
