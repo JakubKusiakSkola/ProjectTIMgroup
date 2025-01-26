@@ -1,5 +1,5 @@
 import { HashLink } from "react-router-hash-link";
-import { Paper, Switch, AppBar, Box, CssBaseline, Toolbar, Button, Modal } from "@mui/material";
+import { Paper, Switch, AppBar, Box, CssBaseline, Toolbar, Button, Modal, Drawer, IconButton} from "@mui/material";
 import React, { useState, useEffect, useCallback } from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { useMediaQuery } from "@mui/material";
@@ -16,7 +16,8 @@ import './LoginSignup.css';
 import axios from "axios";
 import userIcon from './components/Assets/user.png'; // Adjust the path as necessary
 import mailIcon from './components/Assets/mail.png'; // Adjust the path as necessary
-import passwordIcon from './components/Assets/unlock.png'; // Adjust the path as necessary
+import passwordIcon from './components/Assets/unlock.png';
+import MenuIcon from '@mui/icons-material/Menu';  // Adjust the path as necessary
 
 function App() {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
@@ -48,6 +49,7 @@ function AppContent({ prefersDarkMode }) {
   const [openLoginModal, setOpenLoginModal] = useState(false);
   const [action, setAction] = useState("Registrácia");
   const [message, setMessage] = useState(""); // State variable for the success message
+  const [openDrawer, setOpenDrawer] = useState(false); // Stav pre otvorený/zakrytý Drawer
 
   const [formData, setFormData] = useState({
     username: "",
@@ -133,7 +135,7 @@ function AppContent({ prefersDarkMode }) {
       <AppBar component="nav" sx={{ backgroundColor: "#000", width: "100%" }}>
         <Toolbar sx={{ padding: 2 }}>
           <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", maxWidth: "1200px", width: "100%", margin: "0 auto" }}>
-            <Box component="img" src="/images/logo.svg" alt="Logo" sx={{ height: "60px" }} />
+            <Box component="img" src="../images/logo.svg" alt="Logo" sx={{ height: "60px" }} />
             {!isMobile && ( // Ak nie je mobil, zobraziť horizontálnu navigáciu
               <Box sx={{ display: "flex", gap: "20px", justifyContent: "center" }}>
                 {navItems.map((item) => (
@@ -170,11 +172,54 @@ function AppContent({ prefersDarkMode }) {
                    "& .MuiSwitch-rail": { backgroundColor: "#F9E0E6" },
                  }}
               />
+              {isMobile && ( // Ak je mobil, zobrazí sa hamburger ikona
+                    <IconButton onClick={() => setOpenDrawer(!openDrawer)} sx={{ color: "#F9E0E6", marginLeft: "10px" }}>
+                      <MenuIcon />
+                    </IconButton>
+                  )}
             </Box>
           </Box>
         </Toolbar>
       </AppBar>
+      <Drawer
+            anchor="left"
+            open={openDrawer}
+            onClose={() => setOpenDrawer(false)}
+            sx={{
+              "& .MuiDrawer-paper": {
+                backgroundColor: "#000",
+                color: "#610726",
+                padding: "16px",
+              },
+            }}
+          >
+            <Box sx={{ width: 250 }}>
+              <Box component="img" src="/images/logo.svg" alt="Logo" sx={{ height: "60px", marginBottom: 2 }} />
 
+              <Box sx={{ marginTop: 3, display: "flex", flexDirection: "column", justifyContent: "left"}}>
+                {navItems.map((item) => (
+                  <Button
+                    key={item.label}
+                    component={HashLink}
+                    smooth
+                    to={item.path}
+                    sx={{ color: "#FFF", marginBottom: 2 }}
+                    onClick={() => setOpenDrawer(false)} // Zavrieme Drawer po kliknutí
+                  >
+                    {item.label}
+                  </Button>
+                ))}
+                {/* Tlačidlo Prihlásiť sa v mobile menu */}
+                <Button
+                  variant="outlined"
+                  sx={{ color: "#F9E0E6", borderColor: "#F9E0E6", marginTop: 2 }}
+                  onClick={handleOpenLoginModal}
+                >
+                  Prihlásiť sa
+                </Button>
+              </Box>
+            </Box>
+          </Drawer>
       {/* Modal for Login */}
       <Modal
         open={openLoginModal}
