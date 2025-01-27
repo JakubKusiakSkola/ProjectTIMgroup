@@ -83,7 +83,7 @@ const Schedule = ({ mode }) => {
             margin: "0 auto",
           }}
         >
-          Vitajte na stránke rozvrhu hodín pre vaše deti. My im pomôžeme blá blá blá. Pozrite si jednotlivé kurzy blá blá blá a zaregistrujte Vaše dieťa.
+          Vitajte na stránke rozvrhu hodín pre vaše deti. Pozrite si jednotlivé kurzy a zaregistrujte Vaše dieťa.
         </Typography>
       </Box>
 

@@ -9,6 +9,47 @@ const mysql = require("mysql2");
 
 const app = express();
 
+{/*const config = {
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    server: process.env.DB_HOST,
+    database: process.env.DB_NAME,
+    port: 3306,
+    ssl: {
+        rejectUnauthorized: false,
+    },
+};
+
+let connection;
+
+const connectToDatabase = async () => {
+    try {
+        connection = await mysql.createConnection(config);
+        console.log('Connected to Azure MySQL Database');
+    } catch (err) {
+        console.error('Failed to connect to Azure MySQL Database:', err);
+        process.exit(1); 
+    }
+}
+
+const closeDatabaseConnection = async () => {
+    try {
+        if (connection) {
+          await connection.end();
+          console.log('Database connection closed.');
+        }
+      } catch (err) {
+        console.error('Error closing the database connection:', err);
+      } finally {
+        process.exit(0);
+      }
+};
+
+process.on('SIGINT', closeDatabaseConnection);
+process.on('SIGTERM', closeDatabaseConnection);
+
+connectToDatabase(); */}
+
 
 // middleware
 app.use(cors());
@@ -21,7 +62,7 @@ const db = mysql.createConnection({
     password: process.env.DB_PASSWORD || '',
     database: process.env.DB_NAME || 'projectdatabase',
     port: process.env.DB_PORT || 3306
-});
+}); 
 
 // pripojenie na MySQL
 db.connect((err) => {
@@ -44,7 +85,7 @@ app.post("/register", async (req, res) => {
             return res.status(500).json( { message: 'Database error'});
     
         if (results.length > 0)
-            return res.status(400).json( { message: 'User already exists.'});
+            return res.status(400).json( { message: 'Použivateľ už existuje.'});
 
          // password hash
         const hashedPass = await bcrypt.hash(password, 10);
@@ -53,8 +94,8 @@ app.post("/register", async (req, res) => {
         db.execute('INSERT INTO usersinfo (email, password) VALUES (?, ?)',
             [email, hashedPass], (err, result) => {
                 if (err)
-                    return res.status(500).json( { message: 'Failed to register user.'} );
-                res.status(201).json( { message: 'User registered successfully.' } );
+                    return res.status(500).json( { message: 'Registrácia zlyhala.'} );
+                res.status(201).json( { message: 'Registrácia prebehla úspešne.' } );
             }
         );
     });
@@ -72,13 +113,13 @@ app.post("/login", async (req, res) => {
             return res.status(500).json( { message: 'Database error.'} );
 
         if (results.length === 0)
-            return res.status(400).json( { message: 'User not found.'} );
+            return res.status(400).json( { message: 'Používateľ sa nenašiel.'} );
 
         const user = results[0]; // zoberie prveho a jedineho usera
         const isPassValid = await bcrypt.compare(password, user.password);
 
         if (!isPassValid)
-            return res.status(400).json( { message: 'Invalid Password.'} );
+            return res.status(400).json( { message: 'Neplatné heslo.'} );
 
         // vygeneruje JWT Token
         const token = jwt.sign(
@@ -87,13 +128,9 @@ app.post("/login", async (req, res) => {
             { expiresIn: '1h'} // token vyprsi po 1 hodine
         );
 
-        res.json( { message: 'Login succesful!', token} );
+        res.json( { message: 'Prihlásenie prebehlo úspešne!', token} );
     });
 });
-
-{/*app.post("/test", (req, res) => {
-    res.json({ message: "Test route works!"});
-});*/}
 
 app.get("/", (req, res) => {
     res.send("Welcome to the backend server!.");
