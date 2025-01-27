@@ -71,7 +71,7 @@ const FAQ = ({ mode }) => {
           aria-controls="panel1-content"
           id="panel1-header"
         >
-          <Typography component="span">Je možné prihlásiť sa na dva kurzy naraz?</Typography>
+          <Typography component="span"> Dá sa T.I.M merch kúpiť ? </Typography>
         </AccordionSummary>
         <AccordionDetails sx={{
             textAlign: "left"
@@ -93,7 +93,7 @@ const FAQ = ({ mode }) => {
           aria-controls="panel1-content"
           id="panel1-header"
         >
-          <Typography component="span">Je možné prihlásiť sa na dva kurzy naraz?</Typography>
+          <Typography component="span">Je možné prihlásiť aj dieťa, ktoré nedovŕšilo 3 roky ?</Typography>
         </AccordionSummary>
         <AccordionDetails sx={{
             textAlign: "left"           
@@ -114,7 +114,7 @@ const FAQ = ({ mode }) => {
           aria-controls="panel1-content"
           id="panel1-header"
         >
-          <Typography component="span">Je možné prihlásiť sa na dva kurzy naraz?</Typography>
+          <Typography component="span">Je potrebná špeciálna obuv ?</Typography>
         </AccordionSummary>
         <AccordionDetails sx={{
             textAlign: "left"
@@ -136,7 +136,7 @@ const FAQ = ({ mode }) => {
           aria-controls="panel1-content"
           id="panel1-header"
         >
-          <Typography component="span">Je možné prihlásiť sa na dva kurzy naraz?</Typography>
+          <Typography component="span">Ak odídem som povinná odovzdať kostými a merch školy ?</Typography>
         </AccordionSummary>
         <AccordionDetails sx={{
             textAlign: "left"
@@ -158,7 +158,7 @@ const FAQ = ({ mode }) => {
           aria-controls="panel1-content"
           id="panel1-header"
         >
-          <Typography component="span">Je možné prihlásiť sa na dva kurzy naraz?</Typography>
+          <Typography component="span">Sú kurzy prispôsobené aj úplným začiatočníkom ?</Typography>
         </AccordionSummary>
         <AccordionDetails sx={{
             textAlign: "left"
