@@ -40,9 +40,7 @@ const Events = ({ mode }) => {
                     margin: "0 auto",
                   }}
                 >
-          Lorem ipsum dolor sit amet consectetur. Aliquam egestas sed quam aliquam fermentum metus arcu quam et.
-          Consectetur iaculis diam non amet in. Nunc lacus nisi adipiscing enim sed. Ultrices amet nibh fringilla
-          accumsan.
+          Čo nás spolu v blízkej dobe čaká ? 
         </Typography>
       </Box>
 
@@ -71,9 +69,7 @@ const Events = ({ mode }) => {
               MIA FESTIVAL
             </Typography>
             <Typography variant="body2" sx={{ color: "inherit" }}>
-              Lorem ipsum dolor sit amet consectetur. Varius placerat tortor ornare varius eu. Tincidunt risus
-              consectetur vitae non amet non faucibus sagittis. Non at suspendisse dignissim nam ac. Pellentesque est
-              at penatibus lectus tincidunt urna urna nam.
+              Tanečná súťaž KOŠICE 18.4.2025
             </Typography>
           </CardContent>
         </Card>

@@ -194,7 +194,7 @@ function AppContent({ prefersDarkMode }) {
             }}
           >
             <Box sx={{ width: 250 }}>
-              <Box component="img" src="/images/logo.svg" alt="Logo" sx={{ height: "60px", marginBottom: 2 }} />
+              <Box component="img" src="../images/Logo.svg" alt="Logo" sx={{ height: "60px", marginBottom: 2 }} />
 
               <Box sx={{ marginTop: 3, display: "flex", flexDirection: "column", justifyContent: "left"}}>
                 {navItems.map((item) => (
